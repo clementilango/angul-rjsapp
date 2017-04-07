@@ -24,8 +24,11 @@ namespace angularjsapp
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/assets/css/bootstrap.css",
+                      "~/assets/css/site.css",
+                      "~/assets/css/Style.css"));
+            bundles.Add(new ScriptBundle("~/bundles/angular").Include(
+                     "~/Scripts/angular.js"));
         }
     }
 }
