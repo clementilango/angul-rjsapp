@@ -1,13 +1,10 @@
 ﻿app.service("categoryService", function ($http) {
-    var url = "http://sony-pc/ForumWebApi/api/Categories/";
+    var url = "http://localhost:12448/api/Categories";
     //get All Books
     this.getCategories = function () {
         //var url = "http://sony-pc/ForumWebApi/api/Categories/";
         
-        return $http({
-    method: 'JSONP',
-    url: url
-})
+        return $http.get(url);
         //$http.get("http://sony-pc/ForumWebApi/api/Categories/");
     };   
 

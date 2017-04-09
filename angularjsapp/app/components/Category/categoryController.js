@@ -5,28 +5,27 @@
     //To Get all book records  
     function GetAllCategories() {
         $scope.categories = [
-       { name: 'Jani'},
-       { name: 'Hege'},
-       { name: 'Kai'}
+       { name: 'Cat1'},
+       { name: 'Cat2'},
+       { name: 'Cat3'}
         ];
-        //var getCategoryData = categoryService.getCategories();
-        //getCategoryData.then(function (Category) {
-        //    $scope.categories = Category.data;
-        //}, function () {
-        //    alert('Error in getting book category');
-        //});
+        var getCategoryData = categoryService.getCategories();
+        getCategoryData.then(function (category) {
+            $scope.categories = category.data;
+        }, function () {
+            alert('Error in getting book category');
+        });
     }
 });
 app.controller("addcategoryCtrl", function ($scope, categoryService) {
     $scope.$parent.name = "Add a new category";
     $scope.AddCategory = function () {
-        var Category = {
-            id: 1,
-            name: "abc",
-            description: "abc",
-            position: "abc"
+        var category ={
+            "category":[
+                {"id":1, "name":"Doe", "description":"Doe", "position":"Doe"}
+            ]
         };        
-        var getBookData = categoryService.addCategory(Category);
+        var getBookData = categoryService.addCategory(category);
             getBookData.then(function (msg) {
                 GetAllBooks();
                 alert(msg.data);
