@@ -1,9 +1,10 @@
 ﻿app.service("titleService", function ($http) {
     var url = "http://sony-pc/ForumWebApi/api/Categories/";
-    this.getTitles = function () {
+    this.getTitles = function (Id) {
         return $http({
     method: 'JSONP',
-    url: url
+    url: url,
+    data:Id
 })
     };   
 

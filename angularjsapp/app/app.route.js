@@ -20,7 +20,7 @@ app.config(function($routeProvider) {
         templateUrl: "app/components/Category/addCategoryView.html",
         controller : "addcategoryCtrl"
     })
-    .when("/title", {
+    .when("/title:CategoryId", {
         templateUrl: "app/components/titles/titleView.html",
         controller : "titleCtrl"
     })

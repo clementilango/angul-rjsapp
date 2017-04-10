@@ -1,5 +1,5 @@
 ﻿app.service("categoryService", function ($http) {
-    var url = "http://localhost:12448/api/Categories";
+    var url = "http://localhost:58553/api/Categories";
     //get All Books
     this.getCategories = function () {
         //var url = "http://sony-pc/ForumWebApi/api/Categories/";
@@ -9,12 +9,15 @@
     };   
 
     // Add Book
-    this.addCategory = function (category) {
+    this.addCategory = function (Category) {
         var response = $http({
             method: "POST",
             url: url,
-            data: JSON.stringify(category),
-            dataType: "json"
+            data: Category,
+            headers: {
+        'Content-Type': 'application/json'
+        }
+
         });
         return response;
     }

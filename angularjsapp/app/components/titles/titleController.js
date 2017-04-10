@@ -1,13 +1,15 @@
-﻿app.controller("titleCtrl", function ($scope,titleService) {
+﻿app.controller("titleCtrl", function ($scope, titleService, $routeParams) {
    
     GetAllTitles();
     //To Get all book records  
     function GetAllTitles() {
-        $scope.titles = [
-       { name: 'Title1'},
-       { name: 'Title2'},
-       { name: 'Title3'}
-        ];        
+        var categoryId= $routeParams.ID;
+        var getTitleData = titleService.getTitles(categoryId);
+        getTitleData.then(function (Category) {
+            $scope.titles = Category.data;
+        }, function () {
+            alert('Error in getting book category');
+        });
     }
     $scope.deleteTitle = function (Title) {
         var getTitleData = titleService.DeleteTitle(Title.Id);
