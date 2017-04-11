@@ -21,7 +21,7 @@
         });
     }
 });
-app.controller("addtitleCtrl", function ($scope, titleService, categoryService, $routeParams) {
+app.controller("addtitleCtrl", function ($scope, titleService, categoryService, $routeParams, $location) {
     var selected = "";
     GetAllCategories();
     function GetAllCategories() {
@@ -45,6 +45,7 @@ app.controller("addtitleCtrl", function ($scope, titleService, categoryService, 
         var getTitleData = titleService.addTitle(Topic);
             getTitleData.then(function (msg) {
                 alert(msg.data);
+                $location.path('/title/' + selected);
             }, function () {
                 alert('Error in adding a record');
             });

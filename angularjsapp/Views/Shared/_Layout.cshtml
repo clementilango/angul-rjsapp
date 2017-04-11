@@ -22,25 +22,24 @@
     <script src="~/app/components/comments/commentsController.js"></script>
 </head>
 <body>
-    
+    <h1 class="pull-left">SimpleForum</h1>
     <div class="container" ng-app="myApp">
-        <h1 class="pull-left">SimpleForum</h1>
-        <div class="page-header page-heading">          
-            
+        <div class="page-header page-heading">
+
             <ol class="breadcrumb pull-right where-am-i">
-                <li><a href="#/">Home</a></li>                
+                <li><a href="#/">Home</a></li>
                 <li><a href="#london">Categories</a></li>
-            </ol>           
+            </ol>
         </div>
         <div ng-view></div>
         @RenderBody()
     </div>
     @*<script>
-var app = angular.module('myApp', []);
-app.controller('myCtrl', function($scope) {
-    $scope.name = "John Doe";
-});
-</script>*@
+          var app = angular.module('myApp', []);
+          app.controller('myCtrl', function ($scope) {
+              $scope.name = "John Doe";
+          });
+    </script>*@
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/bootstrap")
         @RenderSection("scripts", required: false)
