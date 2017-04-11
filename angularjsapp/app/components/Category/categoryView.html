@@ -6,6 +6,7 @@
         <th>
             <h3>Categories</h3>
         </th>       
+        <th class="cell-stat text-center hidden-xs hidden-sm">Topics</th>
     </tr>
 </thead>
 <tbody>
@@ -14,9 +15,8 @@
         <td>
             <h4><a href="#title/{{category.CategoryId}}">{{category.CategoryName}}</a><br><small>{{category.Description}}</small></h4>
         </td>
-        <!--<td class="text-center hidden-xs hidden-sm"><a href="#">9 542</a></td>
-        <td class="text-center hidden-xs hidden-sm"><a href="#">89 897</a></td>
-        <td class="hidden-xs hidden-sm">by <a href="#">John Doe</a><br><small><i class="fa fa-clock-o"></i> 3 months ago</small></td>-->
+        <td class="text-center hidden-xs hidden-sm">{{category.TopicsCount}}</td>
+        <td class="text-center hidden-xs hidden-sm"></td>
     </tr>   
 </tbody>
 </table>

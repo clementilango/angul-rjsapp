@@ -1,27 +1,25 @@
 ﻿app.service("titleService", function ($http) {
-    var url = "http://sony-pc/ForumWebApi/api/Categories/";
+    var url = "http://localhost:58553/api/Title";
     this.getTitles = function (Id) {
-        return $http({
-    method: 'JSONP',
-    url: url,
-    data:Id
-})
+        return $http.get(url + "/?CategoryId=" + Id);        
     };   
 
     // Add title
-    this.addTitle = function (Title) {
+    this.addTitle = function (Topic) {
         var response = $http({
             method: "POST",
             url: url,
-            data: JSON.stringify(Title),
-            dataType: "json"
+            data: Topic,
+            headers: {
+                'Content-Type': 'application/json'
+            }
         });
         return response;
     }
     //Delete title
     this.DeleteTitle = function (titleId) {
         var response = $http({
-            method: "post",
+            method: "DELETE",
             url: url,
             params: {
                 bookId: JSON.stringify(titleId)

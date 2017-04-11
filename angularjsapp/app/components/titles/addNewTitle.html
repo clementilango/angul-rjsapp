@@ -1,0 +1,23 @@
+﻿<h2>Add a new topic</h2>
+<form>
+    <div class="form-group">
+        <label for="usr">Topic name:</label>
+        <input type="text" class="form-control" id="Topic name" ng-model="TitleName">
+    </div>
+    <div class="form-group">
+        <label for="Description">Description:</label>
+        <textarea class="form-control" rows="3" id="Description" ng-model="Description"></textarea>
+    </div>
+    <div class="form-group">
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+               Categories
+    <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a ng-repeat="category in categories" ng-click="setClicked({{category.CategoryId}})">{{category.CategoryName}}</a></li>
+            </ul>
+        </div>
+    </div>
+    <button class="btn btn-lg btn-primary " type="submit" ng-click="AddTopic()">Add Topic</button>
+</form>

@@ -13,20 +13,24 @@ app.config(function($routeProvider) {
         controller: "homeCtrl"
     })
     .when("/london", {
-        templateUrl : "app/components/Category/categoryView.html",
-        controller : "categoryCtrl"
-        })
+        templateUrl: "app/components/Category/categoryView.html",
+        controller: "categoryCtrl"
+    })
     .when("/addCategory", {
         templateUrl: "app/components/Category/addCategoryView.html",
-        controller : "addcategoryCtrl"
+        controller: "addcategoryCtrl"
     })
-    .when("/title:CategoryId", {
+    .when("/title/:CategoryId", {
         templateUrl: "app/components/titles/titleView.html",
-        controller : "titleCtrl"
+        controller: "titleCtrl"
     })
     .when("/comments", {
         templateUrl: "app/components/comments/commentsView.html",
         controller: "commentCtrl"
+    })
+    .when("/addTitle", {
+        templateUrl: "app/components/titles/addNewTitle.html",
+        controller: "addtitleCtrl"
     });
 });
 app.controller("homeCtrl", function ($scope) {

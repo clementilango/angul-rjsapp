@@ -188,6 +188,7 @@
     <Content Include="app\components\comments\commentsService.js" />
     <Content Include="app\components\home\homeView.html" />
     <Content Include="app\components\JavaScript.js" />
+    <Content Include="app\components\titles\addNewTitle.html" />
     <Content Include="app\components\titles\titleController.js" />
     <Content Include="app\components\titles\titleService.js" />
     <Content Include="app\components\titles\titleView.html" />
@@ -1029,16 +1030,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>False</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>3248</DevelopmentServerPort>
-          <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:3248/</IISUrl>
-          <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
-          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>

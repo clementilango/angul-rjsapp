@@ -3,12 +3,12 @@
     GetAllTitles();
     //To Get all book records  
     function GetAllTitles() {
-        var categoryId= $routeParams.ID;
+        var categoryId = $routeParams.CategoryId;
         var getTitleData = titleService.getTitles(categoryId);
-        getTitleData.then(function (Category) {
-            $scope.titles = Category.data;
+        getTitleData.then(function (Title) {
+            $scope.titles = Title.data;
         }, function () {
-            alert('Error in getting book category');
+            alert('Error in getting titles');
         });
     }
     $scope.deleteTitle = function (Title) {
@@ -21,20 +21,32 @@
         });
     }
 });
-app.controller("addtitleCtrl", function ($scope, titleService) {
-    $scope.$parent.name = "Add a new title";
-    $scope.AddCategory = function () {
-        var Title = {
-            id: 1,
-            name: "abc",
-            description: "abc",
-            position: "abc"
-        };        
-        var getTitleData = titleService.addTitle(Title);
+app.controller("addtitleCtrl", function ($scope, titleService, categoryService, $routeParams) {
+    var selected = "";
+    GetAllCategories();
+    function GetAllCategories() {
+        var getCategoryData = categoryService.getCategories();
+        getCategoryData.then(function (Category) {
+            $scope.categories = Category.data;
+        }, function () {
+            alert('Error in getting categories from server');
+        });
+    }
+    $scope.setClicked = function (value) {
+        selected = value;
+    }
+    $scope.AddTopic = function () {
+        var Topic = {
+            "CategoryId": selected,
+            "TitleName": $scope.TitleName,
+            "Description": $scope.Description
+        };
+        alert(Topic);
+        var getTitleData = titleService.addTitle(Topic);
             getTitleData.then(function (msg) {
                 alert(msg.data);
             }, function () {
-                alert('Error in adding nes record');
+                alert('Error in adding a record');
             });
     }
 });
