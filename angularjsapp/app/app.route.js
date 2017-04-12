@@ -1,5 +1,4 @@
 ﻿
-var app = angular.module("myApp", ["ngRoute"]);
 app.config(function ($httpProvider) {
     $httpProvider.defaults.headers.common = {};
     $httpProvider.defaults.headers.post = {};
@@ -39,40 +38,3 @@ app.controller("homeCtrl", function ($scope) {
 app.controller("forumCtrl", function ($scope) {
     $scope.$parent.name = "I love Paris";
 });
-commentCtrl
-//</script>
-
-
-//(function () {
-
-//'use strict'; 
- 
-//config.$inject = ['$routeProvider', '$locationProvider']; 
- 
-//angular.module('myApp', [
-//    'ngRoute', 'myServices'
-//]).config(config);
- 
-//function config($routeProvider, $locationProvider) {
-//    $routeProvider
-//        .when('/', {
-//            templateUrl: '/app/components/Category/home/homeView.html',
-//            controller: 'HomeController'
-//        })
-//        .when('/categories', {
-//            templateUrl: 'app/components/Category/categoryView.html',
-//            controller: 'Category'
-//        })
-//        .when('/addCategory', {
-//            templateUrl: 'app/components/comments/commentsView.html',
-//            controller: 'MoviesEditController'
-//        })
-//        //.when('/movies/delete/:id', {
-//        //    templateUrl: '/Views/delete.html',
-//        //    controller: 'MoviesDeleteController'
-//        //});
- 
-//    $locationProvider.html5Mode(true); 
-//}
- 
-//})();
