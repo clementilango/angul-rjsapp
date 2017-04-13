@@ -1,23 +1,46 @@
-﻿<p class="pull-left"><a class="btn btn-primary" href="#addTitle" role="button">Add a Title</a></p>  
-<table class="table forum table-striped">
-<thead>
-    <tr>
-        <th class="cell-stat"></th>
-        <th>
-            <h3>Titles</h3>
-        </th>
-        <th class="cell-stat text-center hidden-xs hidden-sm">Comments</th>
-        <th class="cell-stat-2x hidden-xs hidden-sm">Created Date</th>
-    </tr>
-</thead>
-<tbody>
-    <tr ng-repeat="Title in titles">
-        <td class="text-center"><i class="fa fa-question fa-2x text-primary"></i></td>
-        <td>
-            <h4><a href="#comments/{{Title.TopicId}}">{{Title.TitleName}}</a><br><small>{{Title.Description}}</small></h4>
-        </td>
-        <td class="text-center hidden-xs hidden-sm"><a href="#">{{Title.CommentCount}}</a></td>
-        <td class="hidden-xs hidden-sm"><i class="fa fa-clock-o"></i>{{Title.CreatedDate | date}}</td>
-    </tr>   
-</tbody>
+﻿<input ng-model="q" id="search" class="form-control" placeholder="Filter text">
+<p class="pull-left"><a class="btn btn-primary" href="#addTitle" role="button" translate="BUTTON_ADDTITLE"></a></p>
+
+<p class="text-right">
+    <button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+        <span translate="PREVIOUS_LINK">Previous</span>
+    </button>
+    {{currentPage+1}}/{{numberOfPages()}}
+    <button ng-disabled="currentPage >= getData().length/pageSize - 1" ng-click="currentPage=currentPage+1">
+        <span translate="NEXT_LINK">Next</span>
+    </button>
+</p>
+<table class="table forum table-striped"> 
+    
+    <thead>
+        <tr>
+            <th class="cell-stat"></th>
+            <th>
+                <h3 translate="TOPICS_TITLE">Titles</h3>
+            </th>
+            <th class="cell-stat text-center hidden-xs hidden-sm" translate="COMMENTS_TITLE"></th>
+            <th class="cell-stat-2x hidden-xs hidden-sm" translate="DATE_TITLE"></th>
+            <th class="cell-stat text-center hidden-xs hidden-sm" translate="ACTIONS_TITLE"></th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="Title in titles | filter:q | startFrom:currentPage*pageSize | limitTo:pageSize">
+            <td class="text-center"><i class="fa fa-question fa-2x text-primary"></i></td>
+            <td>
+                <h4><a href="#comments/{{Title.TopicId}}">{{Title.TitleName}}</a><br><small>{{Title.Description}}</small></h4>
+            </td>
+            <td class="text-center hidden-xs hidden-sm"><a href="#">{{Title.CommentCount}}</a></td>
+            <td class="hidden-xs hidden-sm"><i class="fa fa-clock-o"></i>{{Title.CreatedDate | date}}</td>
+            <td class="text-center">
+                <button type="button" class="btn btn-default btn-sm" ng-click="deleteTitle(Title.TopicId)">
+                    <span translate="DELETE_LINK">Delete</span>
+                </button>
+                <button type="button" class="btn btn-default btn-sm" ng-click="go(Title.TopicId)">
+                    <span translate="EDIT_LINK"></span>
+                </button>
+            </td>
+        </tr>
+    </tbody>
 </table>
+

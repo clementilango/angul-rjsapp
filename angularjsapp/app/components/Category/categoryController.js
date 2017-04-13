@@ -1,4 +1,4 @@
-﻿app.controller("categoryCtrl", function ($scope, categoryService) {
+﻿app.controller("categoryCtrl", function ($scope,$translate, categoryService) {
     GetAllCategories();
     function GetAllCategories() {
         var getCategoryData = categoryService.getCategories();
@@ -9,7 +9,7 @@
         });
     }
 });
-app.controller("addcategoryCtrl", function ($scope, categoryService, $location) {
+app.controller("addcategoryCtrl", function ($scope,$translate, categoryService, $location) {
     $scope.AddCategory = function () {
         var category = { "CategoryName": $scope.Name, "Description": $scope.Description };
         var getData = categoryService.addCategory(category);

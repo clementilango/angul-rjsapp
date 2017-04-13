@@ -4,17 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    @*@Scripts.Render("~/bundles/angular")*@
-    @*@Scripts.Render("~/bundles/customJS")*@
     @Styles.Render("~/Content/css")
-    @*@Scripts.Render("~/bundles/modernizr")*@
-    @*script src="~/Scripts/angular-route.js"></script>*@
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
-
-
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/angular-route.js"></script>
+    <script src="~/Scripts/angular-sanitize.js"></script>
+    <script src="~/Scripts/angular-translate.js"></script>   
+    <script src="~/app/app.template.js"></script>
+    <script src="~/app/app.module.js"></script>
     <script src="~/app/app.route.js"></script>
-
     <script src="~/app/components/Category/categoryService.js"></script>
     <script src="~/app/components/Category/categoryController.js"></script>
     <script src="~/app/components/titles/titleService.js"></script>
@@ -23,13 +20,24 @@
     <script src="~/app/components/comments/commentsController.js"></script>
 </head>
 <body>
-    <h1 class="pull-left">SimpleForum</h1>
+        
+    
     <div class="container" ng-app="myApp">
+        <h1 class="" translate="FORUM_TITLE"></h1>
+        <div class="dropdown pull-right">
+            <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" translate="LANG_SWITCH">                
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" ng-controller="langCtrl">
+                <li><a translate="BUTTON_LANG_EN" ng-click="setEnglish()"></a></li>
+                <li><a translate="BUTTON_LANG_FR" ng-click="setFrench()"></a></li>
+            </ul>
+        </div>
         <div class="page-header page-heading">
 
             <ol class="breadcrumb pull-right where-am-i">
-                <li><a href="#/">Home</a></li>
-                <li><a href="#london">Categories</a></li>
+                <li><a href="#/" translate="HOME_LINK"></a></li>
+                <li><a href="#category" translate="CATEGORIES_TITLE"></a></li>
             </ol>
         </div>
         <div ng-view></div>

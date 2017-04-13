@@ -1,0 +1,22 @@
+﻿<h2 translate="EDIT_TOPIC">Edit Topic</h2>
+<form>
+    <div class="form-group">
+        <label for="Topic name" translate="EDIT_TOPIC_LABEL"></label>
+        <input type="text" class="form-control" id="Topic name" ng-model="title.TitleName">
+    </div>
+    <div class="form-group">
+        <label for="Description" translate="DESCRIPTION_LABEL"></label>
+        <textarea class="form-control" rows="3" id="Description"  ng-model="title.Description"></textarea>
+    </div>
+    <div class="form-group">
+        <div class="dropdown">
+            <button translate="CATEGORIES_TITLE" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">               
+    <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a ng-repeat="category in categories" ng-click="setClicked(category.CategoryId)">{{category.CategoryName}}</a></li>
+            </ul>
+        </div>
+    </div>
+    <button class="btn btn-lg btn-primary " type="submit" ng-click="SaveTopic(title.TopicId)" translate="BUTTON_SAVE">Save</button>
+</form>

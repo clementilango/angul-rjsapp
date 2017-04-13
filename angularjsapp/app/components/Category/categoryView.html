@@ -1,12 +1,13 @@
-﻿<p class="pull-left"><a class="btn btn-primary" href="#addCategory" role="button">Add category</a></p>  
+﻿<p class="pull-left"><a class="btn btn-primary" href="#addCategory" role="button" translate="BUTTON_ADDCATEGORY"></a></p>  
 <table class="table forum table-striped">
 <thead>
     <tr>
         <th class="cell-stat"></th>
         <th>
-            <h3>Categories</h3>
+            <h3 translate="CATEGORIES_TITLE">Categories</h3>
         </th>       
-        <th class="cell-stat text-center hidden-xs hidden-sm">Topics</th>
+        <th class="cell-stat text-center hidden-xs hidden-sm" translate="TOPICS_TITLE"></th>
+        
     </tr>
 </thead>
 <tbody>
@@ -15,8 +16,9 @@
         <td>
             <h4><a href="#title/{{category.CategoryId}}">{{category.CategoryName}}</a><br><small>{{category.Description}}</small></h4>
         </td>
-        <td class="text-center hidden-xs hidden-sm">{{category.TopicsCount}}</td>
-        <td class="text-center hidden-xs hidden-sm"></td>
+        <td class="text-center">{{category.TopicsCount}}</td>
+        
+        <td class="text-center"></td>
     </tr>   
 </tbody>
 </table>

@@ -187,13 +187,11 @@
     <Content Include="app\components\comments\commentsController.js" />
     <Content Include="app\components\comments\commentsService.js" />
     <Content Include="app\components\home\homeView.html" />
-    <Content Include="app\components\JavaScript.js" />
+    <Content Include="app\components\titles\editTitle.html" />
     <Content Include="app\components\titles\addNewTitle.html" />
     <Content Include="app\components\titles\titleController.js" />
     <Content Include="app\components\titles\titleService.js" />
     <Content Include="app\components\titles\titleView.html" />
-    <Content Include="app\Controers.js" />
-    <Content Include="app\service.js" />
     <Content Include="assets\css\bootstrap.css" />
     <Content Include="assets\css\Style.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -226,6 +224,7 @@
     <Content Include="Scripts\angular-scenario.js" />
     <Content Include="Scripts\angular-touch.js" />
     <Content Include="Scripts\angular-touch.min.js" />
+    <Content Include="Scripts\angular-translate.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -244,7 +243,7 @@
     <Content Include="Scripts\angular-aria.min.js.map" />
     <Content Include="Scripts\angular-animate.min.js.map" />
     <Content Include="app\app.route.js" />
-    <Content Include="app\translations\en-IN\category.json" />
+    <Content Include="app\app.template.js" />
     <Content Include="app\app.module.js" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_af-na.js" />
@@ -1007,7 +1006,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\components\comments\NewFolder1\" />
-    <Folder Include="app\translations\NewFolder1\" />
     <Folder Include="App_Data\" />
     <Folder Include="assets\img\" />
     <Folder Include="assets\js\" />

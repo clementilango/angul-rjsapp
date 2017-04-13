@@ -17,14 +17,26 @@
         return response;
     }
     //Delete title
-    this.DeleteTitle = function (titleId) {
+    this.DeleteTitle = function (TopicId) {
         var response = $http({
             method: "DELETE",
+            url: url+'/'+TopicId
+        });
+        return response;
+    }
+    this.editTitle = function (Topic) {
+        var response = $http({
+            method: "PUT",
             url: url,
-            params: {
-                bookId: JSON.stringify(titleId)
+            data: Topic,
+            headers: {
+                'Content-Type': 'application/json'
             }
         });
         return response;
     }
+    this.getSpecificTitle = function (Id) {
+        return $http.get(url + "/?TitleId=" + Id);
+    };
+
 });

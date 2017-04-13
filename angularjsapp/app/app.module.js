@@ -1,24 +1,31 @@
-﻿var app = angular.module("myApp", ["ngRoute"]);
+﻿var app = angular.module("myApp", ["ngRoute","pascalprecht.translate"]);
 
-app.config(function($translateProvider, $translatePartialLoaderProvider ) {
-	$translateProvider.useLoader('$translatePartialLoader', {
-		urlTemplate: '/app/translations/{lang}/{part}.json'
-	});
+app.config(function ($translateProvider) {
+    $translateProvider.fallbackLanguage('en');
+    $translateProvider.registerAvailableLanguageKeys(['en','fr'],
+        {
+            'en_*': 'en',
+            'fr_*': 'fr'
+        })
+    $translateProvider.translations('en',translationsEN);    
+	$translateProvider.translations('fr', translationsFR);
 
-	$translateProvider.preferredLanguage('en-IN');
+	$translateProvider.useSanitizeValueStrategy('escape')
+	$translateProvider.preferredLanguage('en');
 });
-angular.module('league', [
-  'templates-app',
-  'templates-common',
-  'common.error_handling',
-  'common.authentication',
-  'pascalprecht.translate',
-  'angularTranslateApp',
-  'league.home',
-  'league.about',
-  'league.club',
-  'league.team',
-  'league.login',
-  'ui.state',
-  'ui.route'
-])
+
+app.controller("langCtrl",['$scope','$translate', function ($scope, $translate) {
+    $scope.setEnglish = function () {
+        $translate.use('en');
+    }
+    $scope.setFrench = function () {
+        $translate.use('fr');
+    }
+}]);
+
+app.filter('startFrom', function () {
+    return function (input, start) {
+        start = +start; 
+        return input.slice(start);
+    }
+});
